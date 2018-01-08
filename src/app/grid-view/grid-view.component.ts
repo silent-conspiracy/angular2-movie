@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 export class Movie {
 	id: number = undefined
@@ -31,6 +31,9 @@ export class GridViewComponent implements OnInit {
   @Input()
   search: string = "";
 
+  @Output()
+  selected: EventEmitter<Movie> = new EventEmitter<Movie>();
+
   movies: Movie[] = [
     new Movie({name:"Example Movie1", duration:120, language:"English", mpaaRating:"PG13", userRating:"1"}),
     new Movie({name:"Example Movie2", duration:110, language:"Mandarin", mpaaRating:"PG", userRating:"2"}),
@@ -51,6 +54,10 @@ export class GridViewComponent implements OnInit {
     return this.movies.filter(item => {
       return item.name.toLowerCase().indexOf(this.search.toLowerCase()) > -1;
     });
+  }
+
+  selectMovie(movie: Movie) {
+    this.selected.emit(movie);
   }
 
 }

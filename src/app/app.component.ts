@@ -8,4 +8,10 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app';
   searchText = "";
+  selectedMovie:any;
+
+  onMovieSelect(event: any) {
+    this.selectedMovie = event;
+    alert("Movie selected: " + this.selectedMovie.name);
+  }
 }
