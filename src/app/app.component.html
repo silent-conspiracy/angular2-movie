@@ -6,7 +6,7 @@
   <hr>
   <div class="row">
     <div class="col-md-3">
-      <input class="form-control" type="text" placeholder="Search movies..."/>
+      <input #searchInput class="form-control" type="text" placeholder="Search movies..." (keyup)="updateSearch(searchInput.value)"/>
     </div>
   </div>
   <hr>
