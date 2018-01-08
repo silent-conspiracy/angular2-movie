@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 export class Movie {
 	id: number = undefined
@@ -28,6 +28,9 @@ export class Movie {
   styleUrls: ['./grid-view.component.css']
 })
 export class GridViewComponent implements OnInit {
+  @Input()
+  search: string = "";
+
   movies: Movie[] = [
     new Movie({name:"Example Movie1", duration:120, language:"English", mpaaRating:"PG13", userRating:"1"}),
     new Movie({name:"Example Movie2", duration:110, language:"Mandarin", mpaaRating:"PG", userRating:"2"}),
@@ -42,6 +45,12 @@ export class GridViewComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  getMovies() {
+    return this.movies.filter(item => {
+      return item.name.toLowerCase().indexOf(this.search.toLowerCase()) > -1;
+    });
   }
 
 }
