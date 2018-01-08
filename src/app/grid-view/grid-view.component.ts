@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Movie, MovieService } from '../movie.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-grid-view',
@@ -14,13 +15,22 @@ export class GridViewComponent implements OnInit {
   selected: EventEmitter<Movie> = new EventEmitter<Movie>();
 
   movies: Movie[] = []
+  _sub;
 
-  constructor(private movieService: MovieService) { }
+  constructor(private route: ActivatedRoute, private movieService: MovieService) { }
 
   ngOnInit() {
+    this._sub = this.route.params.subscribe(params => {
+      this.search = params['search'] || "";
+    });
+
     this.movieService.getMovies().then(movies => {
       this.movies = movies;
-    }
+    });
+  }
+
+  ngOnDestroy() {
+    if (this._sub) this._sub.unsubscribe();
   }
 
   getMovies() {

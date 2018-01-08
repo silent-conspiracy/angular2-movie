@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule, Routes } from '@angular/router';
 
 import { AppComponent } from './app.component';
@@ -10,6 +10,7 @@ import { MovieService } from './movie.service';
 
 const appRoutes: Routes = [
   {path: 'movies', component: GridViewComponent},
+  {path: 'search/:search', component: GridViewComponent},
   {path: '', redirectTo: '/movies', pathMatch: 'full'}
 ]
 
@@ -22,6 +23,7 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes)
   ],
   providers: [MovieService],
