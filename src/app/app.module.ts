@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 
 import { AppComponent } from './app.component';
+import { GridViewComponent } from './grid-view/grid-view.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GridViewComponent
   ],
   imports: [
     BrowserModule
