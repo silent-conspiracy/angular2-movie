@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Movie } from "./grid-view/grid-view.component";
+import { Movie } from "./movie.service";
 
 @Component({
   selector: 'app-root',

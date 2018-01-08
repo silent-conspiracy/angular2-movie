@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Movie } from "../grid-view/grid-view.component";
+import { Movie } from "../movie.service";
 
 @Component({
   selector: 'app-movie-detail',

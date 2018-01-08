@@ -1,26 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-
-export class Movie {
-	id: number = undefined
-	name: string = ""
-	description: string = ""
-	imgPath: string = "http://via.placeholder.com/230x350"
-	duration: number = 0
-	genre: any = undefined
-	language: string = "English"
-	mpaaRating: any = {}
-	userRating: string = undefined
-
-  constructor(json?: any) {
-    if (json) {
-      for (var key in json) {
-        if (key in this && json[key]) {
-          this[key] = JSON.parse(JSON.stringify(json[key]));
-        }
-      }
-    }
-  }
-}
+import { Movie } from '../movie.service';
 
 @Component({
   selector: 'app-grid-view',
