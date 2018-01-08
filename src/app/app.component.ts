@@ -12,6 +12,5 @@ export class AppComponent {
 
   onMovieSelect(event: any) {
     this.selectedMovie = event;
-    alert("Movie selected: " + this.selectedMovie.name);
   }
 }

@@ -4,12 +4,14 @@ import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { GridViewComponent } from './grid-view/grid-view.component';
+import { MovieDetailComponent } from './movie-detail/movie-detail.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    GridViewComponent
+    GridViewComponent,
+    MovieDetailComponent
   ],
   imports: [
     BrowserModule,
