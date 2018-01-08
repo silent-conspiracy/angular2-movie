@@ -28,8 +28,12 @@ export class MovieService {
 
   constructor() { }
 
-  getMovies() {
-    return MOVIES;
+  getMovies(): Promise<Movie[]> {
+    return new Promise<Movie[]>( (resolve, reject) => {
+      setTimeout(() => {
+        resolve(MOVIES);
+      }, 300);
+    });
   }
 
 }

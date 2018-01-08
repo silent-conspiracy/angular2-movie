@@ -18,7 +18,9 @@ export class GridViewComponent implements OnInit {
   constructor(private movieService: MovieService) { }
 
   ngOnInit() {
-    this.movies = this.movieService.getMovies();
+    this.movieService.getMovies().then(movies => {
+      this.movies = movies;
+    }
   }
 
   getMovies() {
