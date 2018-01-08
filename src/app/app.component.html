@@ -11,4 +11,5 @@
   </div>
   <hr>
   <app-grid-view [search]="searchText" (selected)="onMovieSelect($event)"></app-grid-view>
+  <app-movie-detail [movie]="selectedMovie"></app-movie-detail>
 </div>

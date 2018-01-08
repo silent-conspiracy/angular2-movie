@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Movie } from "./grid-view/grid-view.component";
 
 @Component({
   selector: 'app-root',
@@ -8,9 +9,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app';
   searchText = "";
-  selectedMovie:any;
+  selectedMovie: Movie;
 
-  onMovieSelect(event: any) {
+  onMovieSelect(event: Movie) {
     this.selectedMovie = event;
   }
 }

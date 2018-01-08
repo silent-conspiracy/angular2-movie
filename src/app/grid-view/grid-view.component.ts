@@ -8,7 +8,7 @@ export class Movie {
 	duration: number = 0
 	genre: any = undefined
 	language: string = "English"
-	mpaaRating: any = undefined
+	mpaaRating: any = {}
 	userRating: string = undefined
 
   constructor(json?: any) {
@@ -35,14 +35,14 @@ export class GridViewComponent implements OnInit {
   selected: EventEmitter<Movie> = new EventEmitter<Movie>();
 
   movies: Movie[] = [
-    new Movie({name:"Example Movie1", duration:120, language:"English", mpaaRating:"PG13", userRating:"1"}),
-    new Movie({name:"Example Movie2", duration:110, language:"Mandarin", mpaaRating:"PG", userRating:"2"}),
-    new Movie({name:"Example Movie3", duration:100, language:"Hindi", mpaaRating:"NC16", userRating:"3"}),
-    new Movie({name:"Example Movie4", duration:180, language:"Tamil", mpaaRating:"M18", userRating:"4"}),
-    new Movie({name:"Example Movie5", duration:160, language:"Korean", mpaaRating:"R21", userRating:"5"}),
-    new Movie({name:"Example Movie6", duration:130, language:"English", mpaaRating:"PG", userRating:"6"}),
-    new Movie({name:"Example Movie7", duration:140, language:"English", mpaaRating:"PG", userRating:"7"}),
-    new Movie({name:"Example Movie8", duration:120, language:"English", mpaaRating:"PG", userRating:"8"}),
+    new Movie({name:"Example Movie1", duration:120, language:"English", userRating:"1"}),
+    new Movie({name:"Example Movie2", duration:110, language:"Mandarin", userRating:"2"}),
+    new Movie({name:"Example Movie3", duration:100, language:"Hindi", userRating:"3"}),
+    new Movie({name:"Example Movie4", duration:180, language:"Tamil", userRating:"4"}),
+    new Movie({name:"Example Movie5", duration:160, language:"Korean", userRating:"5"}),
+    new Movie({name:"Example Movie6", duration:130, language:"English", userRating:"6"}),
+    new Movie({name:"Example Movie7", duration:140, language:"English", userRating:"7"}),
+    new Movie({name:"Example Movie8", duration:120, language:"English", userRating:"8"}),
   ]
 
   constructor() { }
