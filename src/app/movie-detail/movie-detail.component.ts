@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 import { Movie, MovieService } from "../movie.service";
 
 @Component({
@@ -12,7 +13,7 @@ export class MovieDetailComponent implements OnInit {
   movie: Movie;
   _sub;
 
-  constructor(private route: ActivatedRoute, private router: Router, private movieService: MovieService) { }
+  constructor(private route: ActivatedRoute, private location: Location, private movieService: MovieService) { }
 
   ngOnInit() {
     this._sub = this.route.params.subscribe(params => {
@@ -26,6 +27,10 @@ export class MovieDetailComponent implements OnInit {
 
   ngOnDestroy() {
     if (this._sub) this._sub.unsubscribe();
+  }
+
+  goBack() {
+    this.location.back();
   }
 
 }
