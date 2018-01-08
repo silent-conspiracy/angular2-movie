@@ -1,3 +1,9 @@
-<p>
-  grid-view works!
-</p>
+<h2>Popular Movies this month</h2>
+<div class="row grid-view">
+  <div class="movie">
+    <img src="{{movie.imgPath}}" />
+    <h3>{{movie.name}}</h3>
+    <p>{{movie.duration}}</p>
+    <p>User Rating: {{movie.userRating}}</p>
+  </div>
+</div>

@@ -6,6 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./grid-view.component.css']
 })
 export class GridViewComponent implements OnInit {
+  movie: any = {
+    name: "Example Movie", 
+    imgPath: "http://via.placeholder.com/230x350", 
+    duration: 120, 
+    userRating: "5"
+  }
 
   constructor() { }
 
