@@ -11,6 +11,7 @@ import { MovieService } from './movie.service';
 const appRoutes: Routes = [
   {path: 'movies', component: GridViewComponent},
   {path: 'search/:search', component: GridViewComponent},
+  {path: 'movies/:id', component: MovieDetailComponent},
   {path: '', redirectTo: '/movies', pathMatch: 'full'}
 ]
 

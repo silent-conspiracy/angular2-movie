@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Movie } from "../movie.service";
+import { ActivatedRoute, Router } from '@angular/router';
+import { Movie, MovieService } from "../movie.service";
 
 @Component({
   selector: 'app-movie-detail',
@@ -9,10 +10,22 @@ import { Movie } from "../movie.service";
 export class MovieDetailComponent implements OnInit {
   @Input()
   movie: Movie;
+  _sub;
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private router: Router, private movieService: MovieService) { }
 
   ngOnInit() {
+    this._sub = this.route.params.subscribe(params => {
+      if (params['id']) {
+        this.movieService.getMovie(params['id']).then(movie => {
+          this.movie = movie;
+        });
+      }
+    });
+  }
+
+  ngOnDestroy() {
+    if (this._sub) this._sub.unsubscribe();
   }
 
 }

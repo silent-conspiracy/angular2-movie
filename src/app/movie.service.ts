@@ -36,4 +36,12 @@ export class MovieService {
     });
   }
 
+  getMovie(id: number): Promise<Movie> {
+    return new Promise<Movie>( (resolve, reject) => {
+      setTimeout(() => {
+        resolve(MOVIES.filter(movie => movie.id == id)[0]);
+      }, 300);
+    });
+  }
+
 }
