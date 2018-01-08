@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { MOVIES } from './mock-movies';
 
 export class Movie {
 	id: number = undefined
@@ -26,5 +27,9 @@ export class Movie {
 export class MovieService {
 
   constructor() { }
+
+  getMovies() {
+    return MOVIES;
+  }
 
 }
