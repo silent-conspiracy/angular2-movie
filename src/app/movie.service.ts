@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { MOVIES } from './mock-movies';
 
 export class Movie {
@@ -25,22 +26,23 @@ export class Movie {
 
 @Injectable()
 export class MovieService {
+  movies_url: string = "/assets/movies.json";
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
 
   getMovies(): Promise<Movie[]> {
     return new Promise<Movie[]>( (resolve, reject) => {
-      setTimeout(() => {
-        resolve(MOVIES);
-      }, 300);
+      this.http.get(this.movies_url).subscribe(movies => {
+        resolve(movies as Movie[]);
+      });
     });
   }
 
   getMovie(id: number): Promise<Movie> {
     return new Promise<Movie>( (resolve, reject) => {
-      setTimeout(() => {
-        resolve(MOVIES.filter(movie => movie.id == id)[0]);
-      }, 300);
+      this.http.get(this.movies_url).subscribe((movies:Movie[]) => {
+        resolve(movies.filter(movie => movie.id == id)[0]);
+      });
     });
   }
 
