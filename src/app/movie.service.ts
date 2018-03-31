@@ -26,7 +26,7 @@ export class Movie {
 
 @Injectable()
 export class MovieService {
-  movies_url: string = "http://192.168.1.49:3000/api/movies";
+  movies_url: string = "http://localhost:3000/api/movies";
 
   constructor(private http: HttpClient) { }
 
